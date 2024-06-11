@@ -1,6 +1,6 @@
 // Your free instance will spin down with inactivity, which can delay requests by 50 seconds or more. Upgrade now.
 // solution for above problem on deploying it on render. For every 14 minutes this will be sending get request to the URL
-s
+
 import cron from "cron";
 import https from "https";
 
