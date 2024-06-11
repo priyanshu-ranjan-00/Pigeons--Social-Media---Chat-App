@@ -68,15 +68,15 @@ async function getMessages(req, res) {
   const { otherUserId } = req.params;
   const userId = req.user._id;
   try {
-    console.log("User ID:", userId); // Log user IDs to verify input
-    console.log("Other User ID:", otherUserId);
+    // console.log("User ID:", userId); // Log user IDs to verify input
+    // console.log("Other User ID:", otherUserId);
 
     // finding if the conversation bw the two users exist (loggedin user and the other/recipient user)
     const conversation = await Conversation.findOne({
       participants: { $all: [userId, otherUserId] },
     });
 
-    console.log("Conversation found:", conversation); // Log conversation details to verify
+    // console.log("Conversation found:", conversation); // Log conversation details to verify
 
     if (!conversation) {
       return res.status(404).json({ error: "Conversation not found" });
@@ -87,7 +87,7 @@ async function getMessages(req, res) {
       conversationId: conversation._id,
     }).sort({ createdAt: 1 });
 
-    console.log("Messages found:", messages); // Log messages to verify
+    // console.log("Messages found:", messages); // Log messages to verify
 
     res.status(200).json(messages);
   } catch (error) {

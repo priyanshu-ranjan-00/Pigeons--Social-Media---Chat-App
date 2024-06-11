@@ -54,7 +54,7 @@ const Actions = ({ post }) => {
       console.log(data.error);
 
       if (data.error) return showToast("Error", data.error, "error");
-      console.log(data);
+      // console.log(data);
 
       if (!liked) {
         // add the id of the logged in user (localUser._id) to the likes array of the post
@@ -107,7 +107,7 @@ const Actions = ({ post }) => {
       });
       const data = await res.json();
       if (data.error) return showToast("Error", data.error, "error");
-      console.log(data);
+      // console.log(data);
 
       // setPost({ ...post, replies: [...post.replies, data.reply] });
       const updatedPosts = posts.map((p) => {
