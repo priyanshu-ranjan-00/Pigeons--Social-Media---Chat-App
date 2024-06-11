@@ -9,10 +9,12 @@ import postRoutes from "./routes/postRoutes.js";
 import messageRoutes from "./routes/messageRoutes.js";
 import { v2 as cloudinary } from "cloudinary"; // for storing images such as profile picture
 import { app, server } from "./socket/socket.js";
+import job from "./cron/cron.js";
 
 dotenv.config();
 
 connectDB();
+job.start();
 
 // const app = express(); // no need further as app is imported form socket.js
 
