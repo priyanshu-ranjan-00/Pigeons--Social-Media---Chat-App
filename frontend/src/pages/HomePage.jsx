@@ -5,6 +5,7 @@ import Post from "../components/Post";
 import { useRecoilState } from "recoil";
 import postsAtom from "../atoms/postsAtom";
 import SuggestedUsers from "../components/SuggestedUsers";
+import UserNotFound from "./UserNotFound";
 
 const HomePage = () => {
   // const [posts, setPosts] = useState([]); // to store array of posts fetched from the backend.
@@ -40,8 +41,19 @@ const HomePage = () => {
   return (
     <Flex gap="10" alignItems={"flex-start"}>
       <Box flex={70}>
-        {!loading && posts.length === 0 && (
+        {/* {!loading && posts.length === 0 && (
           <h1>Follow some users to see the feed</h1>
+        )} */}
+
+        {!loading && posts.length === 0 && (
+          <>
+            <Box display={{ base: "block", md: "none", sm: "none" }}>
+              <SuggestedUsers />
+            </Box>
+            <Box display={{ base: "none", md: "block", sm: "block" }}>
+              <UserNotFound text={"Follow some users to see the feed."} />
+            </Box>
+          </>
         )}
 
         {loading && (
@@ -59,9 +71,10 @@ const HomePage = () => {
         display={{
           base: "none",
           md: "block",
+          sm: "block",
         }}
       >
-        <SuggestedUsers/>
+        <SuggestedUsers />
       </Box>
     </Flex>
   );

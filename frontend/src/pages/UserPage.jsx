@@ -51,7 +51,7 @@ const UserPage = () => {
   }
 
   if (!user && !loading) {
-    return <UserNotFound />;
+    return <UserNotFound text={" The user was not found."} />;
   }
 
   return (
